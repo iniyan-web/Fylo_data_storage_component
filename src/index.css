@@ -1,0 +1,344 @@
+:root {
+  --gradient-start: hsl(6, 100%, 80%);
+  --gradient-end: hsl(335, 100%, 65%);
+  --pale-Blue: hsl(243, 100%, 93%);
+  --grayish-Blue: hsl(229, 7%, 55%);
+  --dark-Blue: hsl(228, 56%, 26%);
+  --very-Dark-Blue: hsl(229, 57%, 11%);
+}
+
+html {
+  font-size: 14px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  background: var(--very-Dark-Blue);
+  overflow: hidden;
+}
+
+main {
+  width: 100vw;
+  height: 100vh;
+}
+
+.bg-pattern {
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 50vh;
+}
+
+.fylo {
+  height: 180px;
+  width: 850px;
+  position: absolute;
+  z-index: 2;
+  top: 50vh;
+  left: 50vw;
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  gap: 2rem;
+}
+
+.main,
+.storage {
+  background-color: var(--dark-Blue);
+  padding: 2.5rem;
+}
+
+.main {
+  width: 38%;
+  border-radius: 0.8rem 6rem 0.8rem 0.8rem;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.options {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.options > * {
+  width: 47px;
+  height: 47px;
+  background-color: var(--very-Dark-Blue);
+  background-clip: padding-box;
+  border-radius: 0.7rem;
+}
+
+.doc {
+  padding: 12px 14px;
+}
+
+.folder {
+  padding: 14px 12px;
+}
+
+.upload {
+  padding: 14px 10px;
+}
+
+.options > *:hover {
+  cursor: pointer;
+  background-color: var(--pale-Blue);
+}
+
+.storage {
+  width: 62%;
+  height: 80%;
+  align-self: flex-end;
+  border-radius: 0.7rem;
+  position: relative;
+}
+
+.storage h1 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--pale-Blue);
+  margin-bottom: 1.2em;
+}
+
+.storage h1 > span {
+  font-weight: 700;
+}
+
+.storage-left {
+  position: absolute;
+  top: -3rem;
+  right: 2.8rem;
+  height: 5rem;
+  width: auto;
+  padding: 1.1rem;
+  background-color: white;
+  border-radius: 0.8rem;
+}
+
+.storage-left::after {
+  content: "";
+  display: block;
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 4rem;
+  right: 0;
+  border-left: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-right: 40px solid white;
+}
+
+.storage-left h1 {
+  display: inline-block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--very-Dark-Blue);
+}
+
+.storage-left p {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--grayish-Blue);
+  position: relative;
+  top: -0.4rem;
+  margin-left: 0.5em;
+}
+
+.storage-consumed {
+  width: 100%;
+}
+
+.range {
+  appearance: none;
+  width: 100%;
+  height: 1.1rem;
+  background-color: var(--very-Dark-Blue);
+  border-radius: 1.1rem;
+  margin-bottom: 1em;
+  position: relative;
+  cursor: pointer;
+}
+
+.range::before {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 0.05em;
+  left: 0.05em;
+  width: var(--slider-width);
+  height: 1rem;
+  background: linear-gradient(
+    to right,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
+  border-radius: 1rem;
+}
+
+.range::-webkit-slider-thumb {
+  appearance: none;
+  position: relative;
+  z-index: 2;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 100%;
+  background-color: var(--pale-Blue);
+}
+
+.min-max {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--pale-Blue);
+  font-weight: 700;
+}
+
+@media screen and (max-width: 940px) {
+  html {
+    font-size: 13px;
+  }
+
+  .bg-pattern {
+    height: 50vh;
+  }
+
+  .fylo {
+    height: 160px;
+    width: 700px;
+  }
+
+  .logo {
+    width: 60%;
+  }
+
+  .options {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .options > * {
+    width: 40px;
+    height: 40px;
+  }
+
+  .doc {
+    padding: 10px 12px;
+  }
+
+  .folder {
+    padding: 12px 10px;
+  }
+
+  .upload {
+    padding: 12px 8px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .fylo {
+    height: 320px;
+    width: 600px;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .main,
+  .storage {
+    padding: 2rem;
+  }
+
+  .main {
+    height: 50%;
+  }
+
+  .options {
+    width: 80%;
+  }
+
+  .storage {
+    align-self: center;
+    height: 50%;
+    text-align: center;
+  }
+
+  .storage-left {
+    top: 8.5rem;
+    right: 28%;
+  }
+
+  .storage-left::after {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .fylo {
+    height: 320px;
+    width: 22rem;
+    gap: 1rem;
+  }
+
+  .main,
+  .storage {
+    width: 100%;
+  }
+
+  .main {
+    height: 55%;
+  }
+
+  .logo {
+    width: 55%;
+  }
+
+  .options {
+    width: 72%;
+  }
+
+  .options > * {
+    width: 48px;
+    height: 48px;
+  }
+
+  .doc {
+    padding: 12px 14px;
+  }
+
+  .folder {
+    padding: 14px 12px;
+  }
+
+  .upload {
+    padding: 14px 10px;
+  }
+
+  .storage {
+    height: 45%;
+  }
+
+  .storage-left {
+    right: 22%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .bg-pattern {
+    top: 0;
+    height: 100%;
+  }
+}
